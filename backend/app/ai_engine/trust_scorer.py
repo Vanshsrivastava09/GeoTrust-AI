@@ -1,3 +1,5 @@
+# backend/app/ai_engine/trust_scorer.py
+from typing import Dict  # <-- ADD THIS LINE
 from ..config import settings
 
 class TrustScorer:
