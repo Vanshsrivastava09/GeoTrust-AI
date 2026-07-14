@@ -1,5 +1,5 @@
 # 🌍 GeoTrust AI
-
+  
 <div align="center">
 
 ![GeoTrust AI Logo](https://img.shields.io/badge/GeoTrust-AI-blue?style=for-the-badge&logo=rocket)
