@@ -1,9 +1,12 @@
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Float, Text, Environment } from '@react-three/drei'
+import { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
-import HolographicGlobe from '../components/HolographicGlobe'
-import ParticleField from '../components/ParticleField'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Float, Text, Environment } from '@react-three/drei'
+
+// Lazy load heavy 3D components
+const HolographicGlobe = lazy(() => import('../components/HolographicGlobe'))
+const ParticleField = lazy(() => import('../components/ParticleField'))
 
 function DesktopMonitor() {
   return (
@@ -127,25 +130,26 @@ function ProductShowcase() {
       
       {/* 3D Scene */}
       <div className="absolute inset-0">
-        <Canvas camera={{ position: [0, 2, 8], fov: 50 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <pointLight position={[0, 5, 0]} intensity={0.5} color="#00d9ff" />
-          
-          <Environment preset="city" />
-          
-          {/* Background globe */}
-          <group position={[0, -2, -5]} scale={[2, 2, 2]}>
-            <HolographicGlobe />
-          </group>
-          
-          {/* Particle field */}
-          <ParticleField />
-          
-          {/* Devices */}
-          <DesktopMonitor />
-          <Tablet />
-          <MobilePhone />
+        <Suspense fallback={null}>
+          <Canvas camera={{ position: [0, 2, 8], fov: 50 }}>
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[10, 10, 5]} intensity={1} />
+            <pointLight position={[0, 5, 0]} intensity={0.5} color="#00d9ff" />
+            
+            <Environment preset="city" />
+            
+            {/* Background globe */}
+            <group position={[0, -2, -5]} scale={[2, 2, 2]}>
+              <HolographicGlobe />
+            </group>
+            
+            {/* Particle field */}
+            <ParticleField />
+            
+            {/* Devices */}
+            <DesktopMonitor />
+            <Tablet />
+            <MobilePhone />
           
           {/* Floating data cards */}
           <DataCard text="Trust Score: 87.3" position={[0, 2, 2]} color="#00d9ff" delay={3000} />
@@ -161,6 +165,7 @@ function ProductShowcase() {
                   attach="attributes-position"
                   count={2}
                   array={new Float32Array([-1.75, 0, 1.06, 0, 0, 0.1])}
+                  itemSize={3}
                 />
               </bufferGeometry>
               <lineBasicMaterial color="#00d9ff" transparent opacity={0.2} />
@@ -171,6 +176,7 @@ function ProductShowcase() {
                   attach="attributes-position"
                   count={2}
                   array={new Float32Array([1.75, 0, 1.06, 0, 0, 0.1])}
+                  itemSize={3}
                 />
               </bufferGeometry>
               <lineBasicMaterial color="#a855f7" transparent opacity={0.2} />
@@ -179,6 +185,7 @@ function ProductShowcase() {
           
           <OrbitControls enableZoom={true} enablePan={false} autoRotate autoRotateSpeed={0.3} />
         </Canvas>
+        </Suspense>
       </div>
 
       {/* Overlay content */}

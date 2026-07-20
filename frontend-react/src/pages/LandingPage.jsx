@@ -1,11 +1,14 @@
-import { Canvas } from '@react-three/fiber'
-import { OrbitControls, Stars, Float } from '@react-three/drei'
+import { lazy, Suspense } from 'react'
 import { motion } from 'framer-motion'
 import { Shield, Globe, ArrowRight, Layers, Brain, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import HolographicGlobe from '../components/HolographicGlobe'
-import ParticleField from '../components/ParticleField'
+import { Canvas } from '@react-three/fiber'
+import { OrbitControls, Stars } from '@react-three/drei'
 import FeatureCard from '../components/FeatureCard'
+
+// Lazy load heavy 3D components
+const HolographicGlobe = lazy(() => import('../components/HolographicGlobe'))
+const ParticleField = lazy(() => import('../components/ParticleField'))
 
 function LandingPage() {
   return (
@@ -128,12 +131,14 @@ function LandingPage() {
             className="relative h-[600px]"
           >
             <div className="absolute inset-0">
-              <Canvas camera={{ position: [0, 0, 3], fov: 45 }}>
-                <HolographicGlobe />
-                <ParticleField />
-                <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
-                <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
-              </Canvas>
+              <Suspense fallback={null}>
+                <Canvas camera={{ position: [0, 0, 3], fov: 45 }}>
+                  <HolographicGlobe />
+                  <ParticleField />
+                  <Stars radius={100} depth={50} count={5000} factor={4} saturation={0} fade speed={1} />
+                  <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={0.5} />
+                </Canvas>
+              </Suspense>
             </div>
             
             {/* Floating glass cards */}
