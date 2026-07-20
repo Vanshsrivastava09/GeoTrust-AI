@@ -8,7 +8,7 @@
 [![License](https://img.shields.io/badge/license-MIT-black?style=flat-square)](#license)
 [![Status](https://img.shields.io/badge/status-functional%20prototype-brightgreen?style=flat-square)]()
 
-**Live App:** [geo-trust-ai-six.vercel.app](https://geo-trust-ai-six.vercel.app/)
+**Live App:** [GeoTrust-AI](https://geo-trust-ai-six.vercel.app/)
 **Built for:** Emerging Technologies Hackathon 2026 · Powered by TCOE India
 
 ---
