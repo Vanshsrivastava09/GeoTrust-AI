@@ -1,221 +1,290 @@
 # 🌍 GeoTrust AI
-  
-<div align="center">
-
-![GeoTrust AI Logo](https://img.shields.io/badge/GeoTrust-AI-blue?style=for-the-badge&logo=rocket)
-![License](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)
-![Python](https://img.shields.io/badge/Python-3.11+-blue?style=for-the-badge&logo=python)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.115-green?style=for-the-badge&logo=fastapi)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-PostGIS-blue?style=for-the-badge&logo=postgresql)
-![Docker](https://img.shields.io/badge/Docker-Ready-blue?style=for-the-badge&logo=docker)
 
 **Trust Evaluation Framework for Multi-Source Geospatial Insights**
 
-[Demo](#-demo) • [Documentation](#-documentation) • [API Reference](#-api-reference) • [Deployment](#-(https://geo-trust-ai-six.vercel.app/))
+> *"Making Hidden Trust Visible."*
 
-</div>
+[![Live Demo](https://img.shields.io/badge/demo-live-2563EB?style=flat-square)](https://geo-trust-ai-six.vercel.app/)
+[![License](https://img.shields.io/badge/license-MIT-black?style=flat-square)](#license)
+[![Status](https://img.shields.io/badge/status-functional%20prototype-brightgreen?style=flat-square)]()
+
+**Live App:** [geo-trust-ai-six.vercel.app](https://geo-trust-ai-six.vercel.app/)
+**Built for:** Emerging Technologies Hackathon 2026 · Powered by TCOE India
 
 ---
 
----
----
+## 📌 Overview
 
-## 🎯 Problem Statement
+When satellites, sensors, and APIs fuse into insights like *"flood extent: 4.2 sq km,"* most systems never tell you how much to actually believe that number.
 
-### The Hidden Crisis in Geospatial Data
-
-Over the last few years, geospatial data has become one of the most important inputs into **high-stakes decisions**:
-- 🚨 Where to send disaster relief teams
-- 🌾 When to irrigate a field  
-- ️ How to plan a new road network
-- 🌳 How to track deforestation over a decade
+**GeoTrust AI** is a **trust layer for geospatial pipelines** — it doesn't replace your analytics, it audits them. A six-module engine scores every fused geospatial insight with a transparent **Trust Score (0–100)**, backed by a plain-language, LLM-generated rationale so both technical and non-technical stakeholders can understand *why* a score was assigned.
 
 ### The Problem
 
-**None of these sources agree with each other by default.** When a system fuses optical satellites, radar, weather APIs, IoT sensors, and crowd-sourced reports into one tidy number — *"flood extent: 4.2 sq km"* — it **rarely tells you how much of that number you should actually believe**.
+- Multi-source geospatial data (satellite, sensor, IoT) disagrees by default — resolution, frequency, and accuracy drift between sources.
+- Downstream analytics ship without confidence intervals or error bars.
+- Black-box outputs offer no explainability for high-stakes decisions.
+- Real-world consequences: misallocated disaster response resources, irrigation planning errors, flawed urban planning decisions.
 
-### Real-World Impact
+### The Solution
 
-| Domain | Consequence of Untrusted Data |
-|--------|-------------------------------|
-| **Disaster Management** | Response teams dispatched to wrong locations based on false confidence |
-| **Agriculture** | Irrigation decisions based on cloud-contaminated satellite data |
-| **Environmental Monitoring** | Sensor drift mistaken for genuine climate trends |
-| **Urban Planning** | Infrastructure decisions built on unreliable population density maps |
+GeoTrust AI ingests multi-source geospatial data, validates it, and runs it through an AI-powered trust-evaluation engine that produces:
 
----
-
-## 💡 Solution
-
-### Introducing GeoTrust AI
-
-**GeoTrust AI is a trust layer** that sits on top of existing geospatial pipelines. It doesn't replace your analytics tools — it **audits them**.
-
-<div align="center">
-
-```text
-┌───────────────┐      ┌────────────────┐      ┌────────────────────┐
-│ Data Sources  │ ───▶ │  GeoTrust AI   │ ───▶ │ Decision Makers    │
-│ • Satellites  │      │ Trust Score    │      │ • Emergency Resp.  │
-│ • IoT Sensors │      │ Explainable AI │      │ • Farmers          │
-│ • Weather APIs│      │                │      │ • Urban Planners   │
-└───────────────┘      └────────────────┘      └────────────────────┘
-```
-
-</div>
-
-### What You Get
-
-✅ **Quantified Trust Scores** (0-100) for every geospatial insight  
-✅ **Cross-source consistency checks** using spatial IoU and temporal correlation  
-✅ **Anomaly detection** for sensor drift and data degradation  
-✅ **Explainable AI** with plain-language rationales  
-✅ **REST API** for seamless integration into existing pipelines  
+- A numeric **Trust Score (0–100)** for every fused insight
+- **Cross-source consistency** checks (IoU-based agreement between overlapping sources)
+- **Real-time anomaly detection** on sensor/data drift
+- **Uncertainty quantification** alongside every output
+- A **plain-language explanation** of the score, generated via LLM
+- A simple **REST API** for drop-in integration into existing pipelines
 
 ---
 
 ## ✨ Key Features
 
-### 🔬 Six AI-Powered Modules
+| Feature | Description |
+|---|---|
+| 🧮 **Trust Score Engine** | Six-module pipeline producing a 0–100 trust score per insight |
+| 🗺️ **Multi-Source Map Overlay** | Visualizes overlapping sources (e.g. Sentinel-1, Sentinel-2, IoT feeds) on one map |
+| 🔍 **Cross-Source Consistency (IoU)** | Flags disagreement between overlapping geospatial datasets |
+| 🚨 **Anomaly Detection** | Detects sensor drift and outlier readings in real time |
+| 📊 **Source Reliability Table** | Tracks and displays credibility scores per data source |
+| 🧠 **Explainable AI** | Every score ships with a plain-language rationale generated via LLM |
+| 🔌 **API-First Design** | REST API enables integration without rebuilding existing pipelines |
+| 📈 **Live Trust Meter Dashboard** | Interactive gauge + score visualization in the web app |
 
-1. **Source Profiling Engine**  
-   Builds credibility profiles based on sensor type, resolution, historical accuracy, and metadata completeness
+---
 
-2. **Consistency Engine**  
-   Measures spatial agreement using Intersection-over-Union (IoU) and temporal correlation
+## 🧪 Live Demo
 
-3. **Anomaly Detection Engine**  
-   Watches for calibration drift, data gaps, and statistical outliers using CUSUM and Isolation Forest
+**Web App:** [https://geo-trust-ai-six.vercel.app/](https://geo-trust-ai-six.vercel.app/)
 
-4. **Confidence Engine**  
-   Runs ensemble models with Monte Carlo Dropout for uncertainty quantification
-
-5. **Trust Score Generator**  
-   Combines all metrics into one interpretable 0-100 score using weighted formula
-
-6. **LLM Explanation Engine**  
-   Generates plain-language explanations of trust scores
-
-### 📊 Mathematical Rigor
-
-**Trust Score Formula:**
-TrustScore = 100 × (α×Consistency + β×Confidence + γ×(1-AnomalyPenalty))
-
-Where:
-- **Consistency** = Weighted spatial/temporal agreement across sources
-- **Confidence** = Bayesian posterior from ensemble uncertainty
-- **Anomaly Penalty** = Normalized severity of detected anomalies
-- **α, β, γ** = Configurable weights per domain
+Things to try in the demo:
+- Generate a Trust Score with the live gauge
+- Run a cross-source IoU consistency check on overlapping flood polygons
+- Trigger anomaly detection on simulated sensor drift
+- View the LLM-generated rationale behind any score
+- Call the REST API directly (see [API](#-api) below)
 
 ---
 
 ## 🏗️ Architecture
 
-### System Architecture
+GeoTrust AI follows a **four-layer architecture**:
 
-<div align="center">
-  
-```text
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         DATA INGESTION LAYER                                │
-├──────────────────────────────────────────────────────────────────────────────┤
-│  GeoTIFF  │  NetCDF  │  JSON  │  CSV  │  Streaming Sensors                  │
-└──────────────────────────────────────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                          VALIDATION LAYER                                   │
-├──────────────────────────────────────────────────────────────────────────────┤
-│  Schema Checks  │  Null Detection  │  CRS Verification                      │
-└──────────────────────────────────────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                            AI ENGINE CORE                                   │
-├──────────────────────────────────────────────────────────────────────────────┤
-│                                                                              │
-│  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐            │
-│  │ Source          │   │ Consistency     │   │ Anomaly         │            │
-│  │ Profiling       │   │ Engine          │   │ Detection       │            │
-│  └─────────────────┘   └─────────────────┘   └─────────────────┘            │
-│                                                                              │
-│  ┌─────────────────┐   ┌─────────────────┐   ┌─────────────────┐            │
-│  │ Confidence      │   │ Trust Score     │   │ LLM             │            │
-│  │ Engine          │   │ Generator       │   │ Explanation     │            │
-│  └─────────────────┘   └─────────────────┘   └─────────────────┘            │
-│                                                                              │
-└──────────────────────────────────────────────────────────────────────────────┘
-│
-▼
-┌──────────────────────────────────────────────────────────────────────────────┐
-│                         PRESENTATION LAYER                                  │
-├──────────────────────────────────────────────────────────────────────────────┤
-│  REST API  │  Dashboard  │  PostgreSQL + PostGIS                            │
-└──────────────────────────────────────────────────────────────────────────────┘
+```
+┌────────────────┐    ┌────────────────┐    ┌─────────────────────┐    ┌──────────────────┐
+│   Ingestion     │ →  │   Validation    │ →  │   AI Engine Core     │ →  │   Presentation    │
+│ GeoTIFF, NetCDF,│    │ Schema & CRS    │    │ 6 modules:           │    │ REST API +        │
+│ JSON, CSV,      │    │ checks          │    │ Source Profiling,    │    │ React Dashboard   │
+│ streaming data  │    │                 │    │ Consistency,         │    │                   │
+│                 │    │                 │    │ Anomaly Detection,   │    │                   │
+│                 │    │                 │    │ Confidence,          │    │                   │
+│                 │    │                 │    │ Trust Score,         │    │                   │
+│                 │    │                 │    │ LLM Explanation      │    │                   │
+└────────────────┘    └────────────────┘    └─────────────────────┘    └──────────────────┘
 ```
 
-</div>
+Spatial indexing is handled via **PostgreSQL + PostGIS**, and the stack is containerized with **Docker** for portable deployment.
 
-### Technology Stack
+### Trust Score Formula
 
-| Layer | Technology |
-|-------|-----------|
-| **Frontend** | Streamlit, Folium, Plotly |
-| **Backend** | Python 3.11+, FastAPI 0.115 |
-| **Database** | PostgreSQL 15 + PostGIS 3.3 |
-| **AI/ML** | Scikit-learn, NumPy, Pandas |
-| **Geospatial** | Shapely, GeoJSON, GeoPandas |
-| **Infrastructure** | Docker, Docker Compose |
-| **Deployment** | Render, Railway, Streamlit Cloud |
+```
+TrustScore = 100 · (α·C + β·Conf + γ·(1 − AnomalyPenalty))
+```
+
+Where:
+- **C** — cross-source consistency (IoU-based agreement across overlapping data)
+- **Conf** — model/source confidence
+- **AnomalyPenalty** — penalty derived from real-time anomaly detection
+- **α, β, γ** — tunable weights that sum to 1
 
 ---
 
-## 🚀 Quick Start
+## 🛠️ Tech Stack
+
+| Layer | Technology |
+|---|---|
+| **Frontend** | React + Leaflet |
+| **Backend** | Python + FastAPI |
+| **Machine Learning** | PyTorch + Scikit-learn (CUSUM, Isolation Forest, ensemble models) |
+| **Geospatial Processing** | GDAL, Rasterio, GeoPandas |
+| **Database** | PostgreSQL + PostGIS |
+| **LLM / Explainability** | Groq (plain-language rationale generation) |
+| **Deployment** | Docker, hosted on Vercel (frontend) & Render (backend) |
+
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-- Docker & Docker Compose
-- Python 3.11+
-- Git
+- Node.js 18+
+- Python 3.10+
+- PostgreSQL 14+ with the PostGIS extension
+- Docker (optional, for containerized setup)
+- A Groq API key (for LLM-generated rationale)
 
-### One-Command Setup
+### 1. Clone the repository
 
 ```bash
-# Clone the repository
-git clone https://github.com/YOUR_USERNAME/geotrust-ai.git
-cd geotrust-ai
-
-# Start all services (Database + Backend + Frontend)
-docker-compose up -d
-
-# Seed the database with mock data
-docker exec -it geotrust-ai-backend-1 python scripts/seed_data.py
-
-# Access the application
-echo "Backend API: http://localhost:8000/api/docs"
-echo "Frontend Dashboard: http://localhost:8501"
+git clone https://github.com/Vanshsrivastava09/GeoTrust-AI.git
+cd GeoTrust-AI
 ```
 
-📊 Dashboard
-Features
-Real-Time Trust Metrics: View Trust Score, Consistency, Confidence, and Anomaly Risk
-Interactive Map: Visualize multi-source geospatial data with trust heatmaps
-Source Reliability: Ranked list of contributing sources with individual scores
-AI Explanations: Plain-language breakdowns of trust scores
-Temporal Analysis: Track trust score trends over time
+### 2. Backend setup
 
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate   # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+```
 
-Screenshots
-<div align="center">
+Create a `.env` file in the `backend/` directory:
 
-<img width="1590" height="811" alt="image" src="https://github.com/user-attachments/assets/2eaaa864-dd0c-4780-9408-9c3af6803b17" />
-Main dashboard showing trust metrics and source reliability
+```env
+DATABASE_URL=postgresql://<user>:<password>@localhost:5432/geotrust_ai
+GROQ_API_KEY=your_groq_api_key_here
+API_SECRET_KEY=your_api_secret_here
+ALLOWED_ORIGINS=http://localhost:3000
+```
 
-<img width="1599" height="816" alt="image" src="https://github.com/user-attachments/assets/15b5808d-8f64-4414-a58a-30c369b962f1" />
-Interactive map with multi-source overlays
+Run database migrations and start the API:
 
-<img width="1588" height="812" alt="image" src="https://github.com/user-attachments/assets/8c63a158-9a58-4dba-970b-fe090e7145a9" />
-Source Monitor
+```bash
+alembic upgrade head        # or your migration tool of choice
+uvicorn main:app --reload --port 8000
+```
 
+### 3. Frontend setup
 
+```bash
+cd frontend
+npm install
+```
 
+Create a `.env.local` file in the `frontend/` directory:
+
+```env
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+```
+
+Start the dev server:
+
+```bash
+npm run dev
+```
+
+The app will be available at `http://localhost:3000`.
+
+### 4. Run with Docker (alternative)
+
+```bash
+docker-compose up --build
+```
+
+---
+
+## 📡 API
+
+GeoTrust AI exposes a REST API so existing geospatial pipelines can plug in without a rebuild.
+
+### Generate a Trust Score
+
+```http
+POST /api/v1/trust-score
+Content-Type: application/json
+Authorization: Bearer <API_TOKEN>
+```
+
+**Request body:**
+
+```json
+{
+  "sources": [
+    { "id": "sentinel-1", "geometry": "GeoJSON polygon", "confidence": 0.87 },
+    { "id": "sentinel-2", "geometry": "GeoJSON polygon", "confidence": 0.91 },
+    { "id": "iot-sensor-14", "geometry": "GeoJSON point", "confidence": 0.76 }
+  ],
+  "metric": "flood_extent"
+}
+```
+
+**Response:**
+
+```json
+{
+  "trust_score": 87.3,
+  "consistency": 0.91,
+  "confidence": 0.85,
+  "anomaly_penalty": 0.04,
+  "rationale": "Sources show strong spatial agreement (IoU 0.91) with no significant anomalies detected. Confidence is high across all three inputs."
+}
+```
+
+Full API reference is available at `/docs` (interactive Swagger UI) once the backend is running.
+
+---
+
+## 🔒 Security, Privacy & Compliance
+
+- **Security:** Token-based API authentication, TLS-in-transit, encrypted at-rest storage on PostgreSQL, per-key rate limiting, container-level isolation via Docker, and a signed audit log for every Trust Score produced.
+- **Privacy:** Data-minimization by design — only geometry and metadata are retained; raw imagery is discarded post-scoring by default. Tenant isolation is enforced via PostGIS schemas, with an optional private-deployment mode that keeps all data inside the customer's VPC.
+- **Compliance:** Designed against OGC geospatial standards, aligned with India's DPDP Act principles, and structured to support ISO 27001 controls. The explainability layer helps meet emerging AI-governance disclosure requirements.
+- **Resilience:** Stateless services auto-restart on failure. The anomaly-detection module also monitors the pipeline's own health, and circuit breakers isolate misbehaving upstream sources so one bad feed can't poison the fused trust score.
+
+---
+
+## 🗺️ Roadmap
+
+- **Q1** — Google Earth Engine + ISRO Bhuvan integration
+- **Q2** — Kafka streaming for real-time IoT data
+- **Q4** — Multi-tenant enterprise SaaS offering
+
+---
+
+## 🎯 Target Users
+
+- Disaster-management agencies (NDMA, state DMAs)
+- Agri-tech & irrigation planners
+- Environmental monitoring bodies
+- Urban planning departments
+- GIS & earth-observation platform vendors seeking a trust layer
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/your-feature`)
+3. Commit your changes (`git commit -m "Add your feature"`)
+4. Push to the branch (`git push origin feature/your-feature`)
+5. Open a Pull Request
+
+Please open an issue first to discuss any major changes.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 👤 Author
+
+**Vansh Srivastava**
+Kalinga Institute of Industrial Technology (KIIT)
+
+- GitHub: [@Vanshsrivastava09](https://github.com/Vanshsrivastava09)
+- Live Demo: [geo-trust-ai-six.vercel.app](https://geo-trust-ai-six.vercel.app/)
+
+---
+
+## 🙏 Acknowledgements
+
+Built for the **Emerging Technologies Hackathon 2026**, powered by **TCOE India**.
+
+<p align="center"><i>"Making Hidden Trust Visible."</i></p>
