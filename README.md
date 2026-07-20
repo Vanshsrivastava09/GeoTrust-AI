@@ -9,6 +9,7 @@
 [![Status](https://img.shields.io/badge/status-functional%20prototype-brightgreen?style=flat-square)]()
 
 **Live App:** [GeoTrust-AI](https://geo-trust-ai-six.vercel.app/)
+
 **Built for:** Emerging Technologies Hackathon 2026 · Powered by TCOE India
 
 ---
