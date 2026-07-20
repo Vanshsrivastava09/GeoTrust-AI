@@ -11,7 +11,7 @@
 
 **Trust Evaluation Framework for Multi-Source Geospatial Insights**
 
-[Demo](#-demo) • [Documentation](#-documentation) • [API Reference](#-api-reference) • [Deployment](#-deployment)
+[Demo](#-demo) • [Documentation](#-documentation) • [API Reference](#-api-reference) • [Deployment](#-(https://geo-trust-ai-six.vercel.app/))
 
 </div>
 
